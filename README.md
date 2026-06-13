@@ -2,9 +2,11 @@
 
 **A weekly meal planning kit that runs in Claude.ai.**
 
-Set it up once (20 minutes). Use it every Sunday (15 minutes). Get a full week of dinners and a grocery list that fits your family, your schedule, and what's already in your freezer.
+Set it up once. Use it every Sunday. Get a full week of dinners and a grocery list that fits your family, your schedule, and what's already in your freezer.
 
-No app. No subscription. Just a free Claude.ai account and a few files you fill in once.
+> **New here? Start with the Claude.ai version.**
+> No AnyList. No Claude Code. No installation. No technical knowledge required.
+> Just a browser and a free Claude.ai account.
 
 ---
 
@@ -19,23 +21,33 @@ No app. No subscription. Just a free Claude.ai account and a few files you fill 
 
 ## Two versions included
 
-### Simplified — works in Claude.ai (start here)
+### Claude.ai Version — Start here
 
-No installation. Works in a browser. You fill out files about your family, paste them into Claude, paste the planning prompt, done.
+Works in a browser. No extra apps, no installation, no command line. You fill in a few files about your family, attach them to Claude, paste the prompt. That's the whole thing.
 
-**What you need:** Free Claude.ai account. Claude Pro ($20/month) is recommended for Projects — it saves your preferences so you don't re-upload every Sunday. Not required to try it.
+**What you need:** A free Claude.ai account. That's it.
+
+**What you do NOT need:** AnyList · Claude Code · any installation · any technical knowledge · a paid subscription (Claude Pro helps but isn't required to try)
 
 **Your files:** Everything in the `simplified/` folder.
 
-### Full System — AnyList + Claude Code
-
-Claude browses your actual AnyList recipe library, builds the week, and pushes the plan directly into your AnyList calendar with real recipes attached. Requires some setup (Claude Code + AnyList MCP), but the Sunday workflow is faster once it's running.
-
-**Your files:** Everything in the `full-system/` folder.
+**Time:** About 20 minutes the first time (mostly writing down what your family likes, which you've never put on paper before). 15 minutes every Sunday after that.
 
 ---
 
-## How to get started
+### Advanced — Claude Code + AnyList
+
+Claude browses your actual AnyList recipe library, builds the week, and pushes the plan directly into your AnyList calendar with real recipes attached. Requires some setup (Claude Code + AnyList MCP), but the Sunday workflow is faster once it's running.
+
+**What you need:** AnyList subscription + Claude Code installed on your computer.
+
+**Your files:** Everything in the `full-system/` folder.
+
+**Time:** 30–60 minutes to set up the first time. 15 minutes every Sunday after that.
+
+---
+
+## How to get started (Claude.ai version)
 
 ### Step 1 — Download the kit
 
@@ -43,9 +55,11 @@ Click the green **Code** button above → **Download ZIP** → unzip anywhere.
 
 Or clone: `git clone https://github.com/melsplains/roux.git`
 
-### Step 2 — Read START-HERE.md
+### Step 2 — Open your setup guide
 
-It walks you through which version is right for you and what to fill out.
+Go to `setup-guides/simplified-setup-guide.md`. It walks you through every step.
+
+For the Advanced version: `setup-guides/full-system-setup-guide.md`.
 
 ### Step 3 — Fill in your files
 
@@ -60,13 +74,15 @@ Open the templates and fill in the brackets. Your family, your rules, your meals
 
 ### Step 4 — Run it
 
-Paste your files + the planning prompt into Claude.ai. Get back a full week plan and grocery list. Adjust anything that doesn't feel right. Done.
+Attach your files to Claude.ai and paste the planning prompt. Get back a full week plan and grocery list. Adjust anything. Done.
 
 ---
 
-## Want the full walkthrough?
+## About the setup time
 
-The `setup-guides/` folder has step-by-step instructions for both versions — including how to set up Claude Projects so your preferences are always saved.
+The first setup takes longer than 20 minutes on paper — not because the tool is complicated, but because you're writing down things that have lived in your head: your family's food rules, the meals everyone actually likes, which nights are impossible. Most people find that part surprisingly useful on its own.
+
+After the first week: 15 minutes. Every Sunday. That's the whole point.
 
 ---
 
