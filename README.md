@@ -37,7 +37,7 @@ Works in a browser. No extra apps, no installation, no command line. You fill in
 
 ### Advanced — Claude Code + AnyList
 
-Claude browses your actual AnyList recipe library, builds the week, and pushes the plan directly into your AnyList calendar with real recipes attached. Requires some setup (Claude Code + AnyList MCP), but the Sunday workflow is faster once it's running.
+Claude browses your actual AnyList recipe library, builds the week, and pushes the plan directly into your AnyList calendar with real recipes attached. Requires some setup (Claude Code + AnyList MCP), but once it's running your whole Sunday is three slash commands: `/deals` → `/plan` → `/shop`. The commands ship in the kit (`full-system/.claude/commands/`), along with the `CLAUDE.md` that turns Claude into Roux.
 
 **What you need:** AnyList subscription + Claude Code installed on your computer.
 

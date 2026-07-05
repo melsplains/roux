@@ -33,7 +33,7 @@ Claude Pro ($20/month) is worth it if you do this weekly — it unlocks Projects
 
 ### Advanced — Claude Code + AnyList
 
-This is the version where Claude browses your actual recipe library in AnyList, builds your week, and pushes the plan right into AnyList's calendar with the recipes attached. It requires a little setup — installing Claude Code on your computer and connecting it to AnyList. Not hard, but more steps.
+This is the version where Claude browses your actual recipe library in AnyList, builds your week, and pushes the plan right into AnyList's calendar with the recipes attached. It requires a little setup — installing Claude Code on your computer and connecting it to AnyList. Not hard, but more steps. Once it's set up, your Sunday is three slash commands: `/deals` → `/plan` → `/shop` (they come in the kit).
 
 **What you need:** AnyList (free to download, paid subscription recommended), Claude Code installed on your computer.
 

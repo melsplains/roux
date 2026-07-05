@@ -53,7 +53,7 @@ This is a standalone app you download and install like any other program. No com
 3. Open the downloaded file and follow the installer
 4. Sign in with your Claude account
 
-Once it's open, you have a chat-style interface but it can also see your files, run things locally, and connect to apps like AnyList. This is how you'll run the planning prompt each Sunday.
+Once it's open, you have a chat-style interface but it can also see your files, run things locally, and connect to apps like AnyList. This is how you'll run the planning commands each Sunday.
 
 ---
 
@@ -104,24 +104,40 @@ Same process, but open PowerShell instead of Terminal. Search for "PowerShell" i
 
 ---
 
-## Part 3 — Set Up the AnyList MCP
+## Part 3 — Set Up Your MealPlanning Folder
+
+**Download and organize your files:**
+
+1. Move the `full-system/` folder from this kit to wherever you keep documents
+2. Rename the folder `MealPlanning` (or whatever you want)
+3. Note the full path — you'll use it to tell Claude Code where your files are
+   - Example on Mac: `/Users/[your-username]/Documents/MealPlanning/`
+   - Example on Windows: `C:\Users\[your-username]\Documents\MealPlanning\`
+
+**What's already in the folder (don't delete these):**
+
+- `CLAUDE.md` — the instructions Claude reads automatically every time you open this folder. This is what turns generic Claude into Roux.
+- `.claude/commands/` — the slash commands: `/deals`, `/plan`, `/shop`, and the inventory helpers. The folder name starts with a dot, so your computer may hide it — it's there. (Mac: press `Command + Shift + .` in Finder to show hidden files.)
+
+**Fill in your templates:**
+
+Fill in these files before your first planning session:
+- `family/family-preferences.md` — who eats what, favorite meals, hard nos
+- `family/household-rules.md` — protein rules, budget, fixed nights
+- `family/camping-mode.md` — optional; how planning changes on camping weeks (delete it if you don't camp)
+- `inventory/freezer.md` — what's actually in your freezer
+- `inventory/pantry.md` — what's in your pantry
+- `inventory/fridge.md` — what's in your fridge
+
+---
+
+## Part 4 — Connect AnyList (the MCP)
 
 MCP stands for "Model Context Protocol." The short version: it's how Claude Code connects to external apps like AnyList. You set it up once and then Claude can browse your recipes automatically every Sunday.
 
 This is the most technical part. Take it one step at a time.
 
-**Step 1 — Find your Claude Code settings file**
-
-Claude Code has a settings file where you register the apps it can connect to.
-
-- On Mac: the file is at `~/.claude/settings.json`
-  - To find it: open Finder, press `Command + Shift + G`, type `~/.claude/`, press Go
-- On Windows: the file is at `%APPDATA%\Claude\settings.json`
-  - To find it: open File Explorer and type `%APPDATA%\Claude\` in the address bar
-
-If the file doesn't exist yet, Claude Code will create it the first time you run it.
-
-**Step 2 — Get the AnyList MCP**
+**Step 1 — Get the AnyList MCP**
 
 The AnyList MCP is a connector package. To get it, you'll run one terminal command:
 
@@ -131,11 +147,9 @@ npm install -g anylist-mcp
 
 (Same process as installing Claude Code — open Terminal or PowerShell, paste this, hit Enter, wait.)
 
-**Step 3 — Register it in Claude Code settings**
+**Step 2 — Tell Claude Code about it**
 
-Open the settings.json file in a text editor. You're going to add a section that tells Claude Code about the AnyList connection.
-
-Add this inside the file (if the file already has content, add it inside the existing structure — the MCP setup guide that comes with Claude Code explains the exact placement):
+Create a file named exactly `.mcp.json` (note the dot at the start) inside your MealPlanning folder, with this content:
 
 ```json
 {
@@ -153,56 +167,31 @@ Add this inside the file (if the file already has content, add it inside the exi
 
 Replace the email and password with your actual AnyList login credentials.
 
-**Step 4 — Test it**
+Because the file lives in the folder, the connection comes along automatically whenever Claude Code is opened there — no global settings to hunt down. The first time you open the folder, Claude Code will ask whether to trust this MCP server; approve it.
 
-Open Claude Code and type:
+**Step 3 — Test it**
+
+Open Claude Code in your MealPlanning folder and type:
 
 > "Use AnyList to show me a few of my saved recipes."
 
-If Claude comes back with actual recipes from your library, it's connected. If it says it can't find AnyList or returns an error, check that the MCP is installed and the settings file has no typos (missing commas and brackets are the most common issues).
-
----
-
-## Part 4 — Set Up Your MealPlanning Folder
-
-**Download and organize your files:**
-
-1. Move the `full-system/` folder from this kit to wherever you keep documents
-2. Rename the folder `MealPlanning` (or whatever you want)
-3. Note the full path — you'll use it to tell Claude Code where your files are
-   - Example on Mac: `/Users/[your-username]/Documents/MealPlanning/`
-   - Example on Windows: `C:\Users\[your-username]\Documents\MealPlanning\`
-
-**Fill in your templates:**
-
-Fill in these files before your first planning session:
-- `family/family-preferences.md` — who eats what, favorite meals, hard nos
-- `family/household-rules.md` — protein rules, budget, fixed nights
-- `family/camping-mode.md` — optional; how planning changes on camping weeks (delete it if you don't camp)
-- `inventory/freezer.md` — what's actually in your freezer
-- `inventory/pantry.md` — what's in your pantry
-- `inventory/fridge.md` — what's in your fridge
+If Claude comes back with actual recipes from your library, it's connected. If it says it can't find AnyList or returns an error, check that the MCP is installed and the `.mcp.json` file has no typos (missing commas and brackets are the most common issues).
 
 ---
 
 ## Part 5 — Your First Sunday Run
 
-**Before opening Claude Code (5 minutes):**
+Open Claude Code in your MealPlanning folder and run three commands. Type each one (with the slash) and follow the conversation:
 
-1. Update your inventory files — what did you use this week?
-2. Create a new weekly folder: duplicate the `weekly/template/` folder and name it with this week's date (`YYYY-MM-DD`, e.g., `2026-04-27`)
-3. Open `weekly/2026-04-27/schedule.md` and fill it in — busy nights, weather, anything to use up, child home for lunch?
-4. Update `planning/needs-this-week.md` with anything you noticed throughout the week
+1. **`/deals`** — drop screenshots of this week's deals from your store apps (or paste them). Claude writes them to a deals file the planner reads.
+2. **`/plan`** — Claude reconciles last week (what got cooked, your receipts), asks about your calendar, checks the weather, browses your AnyList recipes, and builds the week.
+3. **`/shop`** — Claude builds the grocery list from the plan + your staples + your needs list, and (after you approve) pushes everything to your AnyList lists and calendar.
 
-**In Claude Code:**
+That's the whole Sunday. `/plan` handles last week's inventory cleanup automatically, so you don't need to prep anything — just have your receipts nearby.
 
-1. Open Claude Code with your MealPlanning folder
-2. Open `full-system/prompts/sunday-planning-prompt.md`
-3. Copy the prompt and paste it into Claude Code
-4. Update the date reference (`[YYYY-MM-DD]`) to this week's date before sending
-5. Hit send
+**Between Sundays:** when something runs low, tell Claude `/needs-add we're out of ranch` — it goes on the running list and shows up on the next grocery list.
 
-Claude will check your files, search your AnyList recipes, build the week, and come back with a plan. It will ask before pushing anything to your AnyList calendar — you get to review the plan first.
+**Prefer one big prompt instead of commands?** The original all-in-one version still lives at `prompts/sunday-planning-prompt.md` — copy, fill in the date, paste. Same result, more scrolling.
 
 ---
 
@@ -216,23 +205,34 @@ The full system is designed around AnyList. Without it, Claude can't browse your
 
 Same Claude Code, different interface. The desktop app has a visual window. The terminal is text-based. Both work identically for this system. Use whichever feels more comfortable.
 
-**My settings.json file has an error and Claude won't start.**
+**I'm using a different AI tool (OpenAI Codex, Cursor, etc.) — does this still work?**
 
-JSON files are picky about formatting — a missing comma or bracket breaks the whole thing. Copy your settings.json content and paste it into jsonlint.com. It'll tell you exactly where the error is.
+Mostly, yes — the files are just markdown. Three renames:
+1. Copy `CLAUDE.md` to `AGENTS.md` — that's the filename most other tools (including Codex) read automatically.
+2. The slash commands: in Codex, copy the files from `.claude/commands/` into `~/.codex/prompts/` and they become `/plan`, `/shop`, etc. there too. In tools without custom commands, open the command file and paste its contents as your prompt.
+3. The AnyList connection: `.mcp.json` is Claude Code's format. Codex configures MCP servers in `~/.codex/config.toml` instead — check your tool's MCP docs and reuse the same command + email/password values.
+
+**My .mcp.json file has an error and the connection won't work.**
+
+JSON files are picky about formatting — a missing comma or bracket breaks the whole thing. Copy your `.mcp.json` content and paste it into jsonlint.com. It'll tell you exactly where the error is.
 
 **Claude can see my files but can't connect to AnyList.**
 
-Check two things: (1) the MCP is installed (run `anylist-mcp --version` in Terminal — you should see a version number), and (2) the settings.json has the correct email and password with no typos.
+Check three things: (1) the MCP is installed (run `anylist-mcp --version` in Terminal — you should see a version number), (2) the `.mcp.json` file is inside your MealPlanning folder and has the correct email and password with no typos, and (3) you approved the MCP when Claude Code asked about it (run `/mcp` inside Claude Code to check its status).
+
+**Typing /plan does nothing / Claude doesn't know the command.**
+
+The commands live in the `.claude/commands/` folder inside your MealPlanning folder. Two usual causes: Claude Code was opened in a different folder (open it in MealPlanning itself), or the hidden `.claude` folder didn't come along when you moved things (re-copy it from the kit — Mac hides dot-folders by default; press `Command + Shift + .` in Finder to see them).
 
 **It worked but the plan doesn't look right.**
 
-Tell Claude what to change. "Switch Wednesday to a pork dish" or "Remove Thursday's salmon — I don't have any left" — just say it in plain English. The prompt is a starting point, not a final answer.
+Tell Claude what to change. "Switch Wednesday to a pork dish" or "Remove Thursday's salmon — I don't have any left" — just say it in plain English. The plan is a starting point, not a final answer.
 
 ---
 
 ## That's the whole setup
 
-If you got through Part 3 without panicking, give yourself credit. The MCP setup is genuinely the hardest part and you only do it once. After that, it's update a few files and paste the prompt. Every Sunday.
+If you got through Part 4 without panicking, give yourself credit. The MCP setup is genuinely the hardest part and you only do it once. After that, it's three slash commands. Every Sunday.
 
 ---
 
