@@ -122,14 +122,23 @@ If you know what sides go with certain meals, tell Claude here. It makes the pla
 
 ---
 
-## Snacks to Keep Stocked
+## Staples & Snacks to Keep Stocked
 
+The recurring items that aren't tied to any one meal — the things that get forgotten when a grocery list is built from the meal plan alone. Claude checks this list every week when building your grocery list.
+
+**Snacks:**
 - [e.g., String cheese]
 - [e.g., Applesauce pouches — for the kid]
 - [e.g., Granola or protein bars]
 - [e.g., Nuts — cashews, almonds]
 - [e.g., Fruit (bananas, grapes, berries)]
-- [Add what your family actually eats]
+
+**Household staples:**
+- [e.g., Lunch meat + bread — every week]
+- [e.g., Butter, milk]
+- [e.g., Chips for packed lunches]
+- [e.g., Coffee]
+- [Add what your family actually burns through]
 
 ---
 

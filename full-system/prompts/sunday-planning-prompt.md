@@ -2,10 +2,10 @@
 
 Run this every Sunday in Claude Code, with your file folder open.
 
-Before you run it, make sure you've:
-1. Updated `inventory/freezer.md` and `inventory/pantry.md`
-2. Copied the weekly template and filled in `weekly/YYYY-MM-DD/schedule.md`
-3. Updated `planning/needs-this-week.md` with anything from your running list
+Before you run it:
+1. Copy the weekly template and fill in `weekly/YYYY-MM-DD/schedule.md`
+2. Update `planning/needs-this-week.md` with anything from your running list
+3. Don't stress about updating inventory by hand — STEP 0 in the prompt has Claude do it with you
 
 ---
 
@@ -38,6 +38,21 @@ Read the following files before starting:
 
 ---
 
+STEP 0 — Reset from last week (do this before planning)
+
+Look at last week's folder in weekly/ (the most recent dated folder) and ask me two questions:
+a) "Which of last week's dinners actually got cooked?" (default: all of them)
+b) "Do you have a grocery receipt from your last trip? Paste it and I'll add everything to inventory."
+
+Then update the inventory files:
+- Remove or mark LOW every ingredient used by the meals that got cooked — sides, sauces, and oils too, not just the protein
+- Add the receipt items to the right inventory file (freezer, pantry, or fridge)
+- Add a dated note at the top of each updated inventory file (e.g., "Updated 2026-07-05 — deducted last week + added Kroger receipt") so we never process the same week or receipt twice
+
+If the inventory files already have a note showing last week was processed, skip this step.
+
+---
+
 STEP 1 — Check calendar and weather (optional, do if you can)
 
 If you have access to my calendar or a web search tool:
@@ -48,7 +63,7 @@ If you can't access those, use the notes I filled in on schedule.md — I've not
 
 ---
 
-STEP 2 — Browse my AnyList recipes
+STEP 2 — Build the candidate pool (recipes AND plain meals)
 
 Use the AnyList integration to browse my recipe library.
 
@@ -59,6 +74,14 @@ For the remaining 6 nights:
 - Prioritize highly-rated recipes
 - Look for meal types that fit my week's schedule (easy nights = slow cooker, sheet pan, minimal prep)
 - Get full details on any recipe that looks promising before selecting it
+
+IMPORTANT: recipes are not the whole pool. The "Meals the Family Loves" list in
+household-rules.md counts equally — plain dinners like burgers, spaghetti with meat
+sauce, or tacos don't need a recipe and shouldn't get crowded out by the recipe
+library. Most weeks should include 1–3 of these.
+
+If schedule.md mentions camping days, also read family/camping-mode.md and follow it
+for those days.
 
 ---
 
@@ -89,12 +112,18 @@ STEP 5 — Build the grocery list
 
 10. Read stores/this_week.md if it exists — check for any sales or deals to factor in
 11. Read planning/needs-this-week.md — include EVERY item from this list regardless of the meal plan
-12. List only what needs to be purchased — skip anything already stocked in inventory files
-13. For each item, flag if there's a matching sale or coupon from this week's deals
-14. If a second store has a significantly better price on something, note it
-15. Group the list by store section
-16. Note ingredients shared across multiple meals this week
-17. Give an estimated total and flag if approaching budget maximum from household-rules.md
+12. Walk through the "Pantry / Freezer Items to Always Have" list in household-rules.md
+    and the snack lists in family-preferences.md, item by item — anything not clearly
+    stocked in the inventory files goes on the list. A meal plan is not a grocery list;
+    the staples are what get forgotten.
+13. Skip anything CLEARLY stocked in the inventory files — but err on the side of
+    inclusion: if you're not certain something is stocked, put it on the list.
+    Crossing an item off in the store is easy — a second trip is not.
+14. For each item, flag if there's a matching sale or coupon from this week's deals
+15. If a second store has a significantly better price on something, note it
+16. Group the list by store section
+17. Note ingredients shared across multiple meals this week
+18. Give an estimated total and flag if approaching budget maximum from household-rules.md
 
 ---
 

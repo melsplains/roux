@@ -43,6 +43,7 @@ Fill this in every Sunday before running the planning prompt. Takes about 3 minu
 - [e.g., We're trying to spend less this week — prioritize the freezer]
 - [e.g., Birthday dinner Saturday — skip planning that night]
 - [e.g., Company coming Thursday — something that feeds 6]
+- [e.g., Camping Friday–Sunday — campfire/grill meals those days, first night simplest, s'mores stuff on the list]
 - [Nothing special]
 
 ---

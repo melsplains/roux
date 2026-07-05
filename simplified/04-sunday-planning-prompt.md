@@ -2,7 +2,7 @@
 
 ## How to use this every Sunday
 
-1. Update your inventory file (`03-inventory.md`) — note what you used this week, mark anything low
+1. Update your inventory file (`03-inventory.md`) — the lazy way: use the Reset Prompt at the bottom of this file and let Claude do it with you
 2. Fill in this week's schedule (`02-weekly-schedule.md`) — busy nights, weather, anything to use up
 3. Open Claude.ai and go to your Meal Planning project (or start a new chat if you don't have a project set up yet)
 4. Attach these two files to the chat:
@@ -66,7 +66,9 @@ Using my family preferences and this week's schedule:
 **STEP 3 — Build the grocery list**
 
 - List only what I actually need to buy — skip anything I've marked as stocked in my inventory
+- BUT err on the side of inclusion: if you're not certain something is stocked, put it on the list. Crossing an item off in the store is easy — a second trip is not.
 - Include everything from my "board list" in the schedule file, even if it's not related to a meal
+- Walk through the "Staples & Snacks to Keep Stocked" list in my preferences file, item by item — anything not clearly stocked goes on the list. A meal plan is not a grocery list; the staples are what get forgotten.
 - Group by store section with checkboxes:
   - Produce
   - Meat & Protein (only if not in freezer)
@@ -99,3 +101,24 @@ Organized by section with checkboxes. One item per line:
 > *(coupon or sale note if I mentioned one in my schedule)*
 
 Total estimate at the bottom.
+
+---
+
+## Bonus: The Reset Prompt (updates your inventory for you)
+
+Updating the inventory file by hand is the step everyone skips — and then the whole system drifts. Instead, before your Sunday planning session, attach `03-inventory.md` and last week's meal plan, then paste this:
+
+---
+
+Help me reset my inventory from last week.
+
+I've attached my inventory file and last week's meal plan.
+
+1. Ask me which of last week's dinners actually got cooked (assume all of them unless I say otherwise)
+2. For each cooked meal, remove or mark LOW everything it used — sides, sauces, and oils too, not just the meat
+3. Then ask me to paste my grocery receipt, and add those items to the right sections
+4. Give me back the complete updated inventory file so I can paste it over my old one, with today's date at the top
+
+---
+
+Two minutes, and your inventory is honest again.

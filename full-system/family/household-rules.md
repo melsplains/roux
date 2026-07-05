@@ -66,6 +66,8 @@ Reference `family-preferences.md` for individual tastes. Reference inventory fil
 
 ## Meals the Family Loves
 
+These don't need recipes — Claude should treat them as equal candidates to anything in a recipe app. Plain dinners the family actually eats beat fancy recipes nobody asked for.
+
 - [e.g., Tacos / Mexican-style meals]
 - [e.g., Spaghetti and meat sauce]
 - [e.g., Chicken and dumplings]

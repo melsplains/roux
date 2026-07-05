@@ -178,6 +178,7 @@ If Claude comes back with actual recipes from your library, it's connected. If i
 Fill in these files before your first planning session:
 - `family/family-preferences.md` — who eats what, favorite meals, hard nos
 - `family/household-rules.md` — protein rules, budget, fixed nights
+- `family/camping-mode.md` — optional; how planning changes on camping weeks (delete it if you don't camp)
 - `inventory/freezer.md` — what's actually in your freezer
 - `inventory/pantry.md` — what's in your pantry
 - `inventory/fridge.md` — what's in your fridge
